@@ -12,8 +12,8 @@ class Solution:
             elif not stack or brackets[stack.pop()] != c:
                 return False
 
-        return True
+        return not stack
 
 
 solution = Solution()
-print(solution.isValid(")"))
+print(solution.isValid("()"))
