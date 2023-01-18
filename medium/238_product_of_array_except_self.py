@@ -13,16 +13,31 @@ Output: [0,0,9,0,0]
 '''
 
 
+# class Solution:
+#     def productExceptSelf(self, nums: list[int]) -> list[int]:
+#         res = []
+
+#         for i in range(len(nums)):
+#             res.append(1)
+#             for j in range(len(nums)):
+#                 print(j)
+#                 if i != j:
+#                     res[i] *= nums[j]
+
+#         return res
+
 class Solution:
     def productExceptSelf(self, nums: list[int]) -> list[int]:
-        res = []
+        res = [1] * (len(nums))
 
-        for i in range(len(nums)-1):
-            res.append(1)
-            for j in range(len(nums)-1):
-                if i != j:
-                    res[i] *= nums[j]
-
+        prefix = 1
+        for i in range(len(nums)):
+            res[i] = prefix
+            prefix *= nums[i]
+        postfix = 1
+        for i in range(len(nums) - 1, -1, -1):
+            res[i] *= postfix
+            postfix *= nums[i]
         return res
 
 
