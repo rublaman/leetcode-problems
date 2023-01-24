@@ -5,8 +5,13 @@ class Solution:
 
         res = []
 
-        for i in nums:
-            print(i)
+        if k == 1:
+            for i in nums:
+                aux = i
+
+        else:
+            for i in nums:
+                print(i)
 
 
 solution = Solution()
